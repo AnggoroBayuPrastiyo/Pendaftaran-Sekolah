@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.logo {
+  background-color: rgb(73, 71, 66);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.logo h3 {
+  padding-left: 20px;
+  font-size: 24px;
+  color: rgb(191, 191, 191);
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  margin: 0px 10px 0px 10px;
+}
+
+nav {
+  width: 300px;
+  padding: 10px;
+}
+
+nav h5 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 280px;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  border: 2px solid black;
+  font-size: 16px;
+  display: block;
+  padding: 10px 10px 10px 25px;
+}
+
+li a:hover {
+  background-color: rgb(117, 117, 214);
+  color: whitesmoke;
+}
+
+/* nanti di hapus aja ini cuma sebagai gambaran ajaa..  */
+.main {
+  background-color: chocolate;
+  flex-grow: 1;
+  height: 100vh;
+}
