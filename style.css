@@ -55,11 +55,13 @@ ul li a {
   font-size: 16px;
   display: block;
   padding: 10px 10px 10px 25px;
+  transition: all ease-in 0.2s;
 }
 
 li a:hover {
   background-color: rgb(117, 117, 214);
   color: whitesmoke;
+  transition: all ease-in 0.2s;
 }
 
 /* nanti di hapus aja ini cuma sebagai gambaran ajaa..  */
