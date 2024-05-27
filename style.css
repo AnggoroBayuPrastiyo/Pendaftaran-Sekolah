@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  bacground
+  background-color: whitesmoke
 }
 
 body {
@@ -65,10 +65,16 @@ li a:hover {
   color: whitesmoke;
   transition: all ease-in 0.2s;
 }
+h1{
+  text-align: center;
+  background-color: chocolate;
+}
 
 /* nanti di hapus aja ini cuma sebagai gambaran ajaa..  */
 .main {
-  background-color: chocolate;
-  flex-grow: 1;
-  height: 100vh;
+  width: 80%;
+  padding: 20px;
+  margin-top: 15px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
