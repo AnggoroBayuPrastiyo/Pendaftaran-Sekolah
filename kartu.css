@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: whitesmoke
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: whitesmoke
+  }
+  
+  .logo {
+    background-color: rgb(73, 71, 66);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .logo h3 {
+    padding-left: 20px;
+    font-size: 24px;
+    color: rgb(191, 191, 191);
+  }
+  
+  .container {
+    display: flex;
+    width: 100vw;
+    margin: 0px 10px 0px 10px;
+  }
+  
+  nav {
+    width: 300px;
+    padding: 10px;
+  }
+  
+  nav h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 280px;
+  }
+  
+  nav ul li {
+    margin-bottom: 10px;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    border: 2px solid black;
+    font-size: 16px;
+    display: block;
+    padding: 10px 10px 10px 25px;
+    transition: all ease-in 0.2s;
+  }
+  
+  li a:hover {
+    background-color: rgb(117, 117, 214);
+    color: whitesmoke;
+    transition: all ease-in 0.2s;
+  }
+  h1{
+    text-align: center;
+    background-color: chocolate;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .print-btn {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    text-align: center;
+  }
+  /* nanti di hapus aja ini cuma sebagai gambaran ajaa..  */
+  .main {
+    width: 80%;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
