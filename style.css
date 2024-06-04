@@ -2,12 +2,12 @@
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
 body {
   overflow-x: hidden;
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
 .logo {
@@ -65,16 +65,16 @@ li a:hover {
   color: whitesmoke;
   transition: all ease-in 0.2s;
 }
-h1{
+h1 {
   text-align: center;
   background-color: chocolate;
 }
 
 /* nanti di hapus aja ini cuma sebagai gambaran ajaa..  */
-.main {
+.contentContact {
   width: 80%;
   padding: 20px;
   margin-top: 15px;
   background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
