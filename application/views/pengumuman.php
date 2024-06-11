@@ -4,7 +4,9 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Sekolah Cerita</title>
+      <!-- ini ada sedikit perubahan di bagian link -->
       <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+      <!-- ini ada sedikit perubahan di bagian link -->
     </head>
     <body>
       <script src="script.js"></script>
@@ -16,12 +18,14 @@
         <nav>
           <h5>Menu</h5>
           <ul>
+      <!-- ini ada sedikit perubahan di bagian link -->
                 <li><a href="<?= site_url('dashboard'); ?>">Beranda</a></li>
                 <li><a href="<?= site_url('informasi'); ?>">Informasi Pendaftaran</a></li>
                 <li><a href="<?= site_url('formulir'); ?>">Isi Formulir Pendaftaran</a></li>
                 <li><a href="<?= site_url('kartu'); ?>">Cetak Kartu Pendaftaran</a></li>
                 <li><a href="<?= site_url('pengumuman'); ?>">Pengumuman Hasil</a></li>
                 <li><a href="<?= site_url('kontak'); ?>">Kontak Kami</a></li>
+      <!-- ini ada sedikit perubahan di bagian link -->
             </ul>
         </nav>
         <div class="contentPengumuman">
