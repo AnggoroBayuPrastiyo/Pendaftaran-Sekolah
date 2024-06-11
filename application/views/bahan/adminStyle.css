@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  height: 100vh;
+  width: 200px;
+  background-color: rgb(72, 72, 72);
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  padding: 15px 10px 15px 10px;
+  border-bottom: 0.5px solid rgb(154, 154, 154);
+  padding-left: 30px;
+  color: rgb(154, 154, 154);
+  font-weight: lighter;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px 10px 15px 30px;
+  color: rgb(154, 154, 154);
+  transition: all ease-in 0.2s;
+  font-size: 14px;
+}
+
+li a:hover {
+  background-color: rgb(117, 117, 214);
+  color: whitesmoke;
+  transition: all ease-in 0.2s;
+}
+
+.main-content {
+  width: 100vw;
+  z-index: -1;
+}
+
+.judul {
+  width: calc(100% -30px);
+  height: 52px;
+  background-color: rgb(117, 117, 214);
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.judul-page {
+  padding: 12px 0px 12px 0px;
+  border-bottom: 2px solid rgb(117, 117, 214);
+  padding-left: 20px;
+  color: rgb(154, 154, 154);
+  font-weight: lighter;
+  margin: 0 0 15px 20px;
+  color: black;
+}
+
+.content {
+  margin: 0 2px 0 30px;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sekolah Cerita</title>
+    <link rel="stylesheet" href="kartu.css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+
+    <div class="logo">
+      <h3>Sekolah Ceria 😄</h3>
+    </div>
+    <div class="container">
+      <nav>
+        <h5>Menu</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="informasi.html">Informasi Pendaftaran</a></li>
+          <li><a href="formulir.html">Isi Formulir Pendaftaran</a></li>
+          <li><a href="kartuPendaftaran.html">Cetak Kartu Pendaftaran</a></li>
+          <li><a href="pengumuman.html">Pengumuman Hasil</a></li>
+          <li><a href="kontak.html">Kontak Kami</a></li>
+        </ul>
+      </nav>
+      <div class="main">
+          <h1>Kartu Pendaftaran</h1>
+
+          <form id="registration-form">
+            <div class="form-group">
+              <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
+              <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="nama-peserta">Nama Peserta:</label>
+              <input type="text" id="nama-peserta" name="nama-peserta">
+            </div>
+
+            <div class="form-group">
+              <label for="tempat-lahir">Tempat Lahir:</label>
+              <input type="text" id="tempat-lahir" name="tempat-lahir">
+            </div>
+
+            <div class="form-group">
+              <label for="tanggal-lahir">Tanggal Lahir:</label>
+              <input type="date" id="tanggal-lahir" name="tanggal-lahir">
+            </div>
+
+            <div class="form-group">
+              <label for='jenis-kelamin'>Jenis Kelamin</label> <br>
+              <select id="jenis-kelamin" name="jenis_kelamin">
+                <option disabled selected>Pilih Jenis Kelamin</option>
+                <option value="lk">Laki-laki</option>
+                <option value="pr">Perempuan</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nomor-akta">Nomor Akta Kelahiran:</label>
+              <input type="number" id="nomor-akta" name="nomor-akta">
+            </div>
+
+            <div class="form-group">
+              <label for="nik">NIK:</label>
+              <input type="number" id="nik" name="nik">
+            </div>
+
+            <div class="form-group">
+              <label for="alamat">Alamat:</label>
+              <input type="text" id="alamat" name="alamat">
+            </div>
+
+            <div class="form-group">
+              <label for="nama-wali">Nama Wali:</label>
+              <input type="text" id="nama-wali" name="nama-wali">
+            </div>
+
+            <div class="form-group">
+              <label for="nomor-hp">Nomor Handphone :</label>
+              <input type="number" id="nomor-hp" name="nomor-hp">
+            </div>
+
+            <div class="form-group">
+              <label for="pilihan-sekolah">Pilihan Sekolah:</label>
+              <input type="text" id="pilihan-sekolah" name="pilihan-sekolah" readonly value="SD Negeri Ceria">
+            </div>
+          </form>
+
+          <div class="print-btn">
+            <button onclick="printKartu()">Submit</button>
+        </div>
+
+
+
+        <script>
+            function printKartu() {
+                // Capture form data
+                var registrationNumber = Math.floor(Math.random() * 1000000) + 1;
+                document.getElementById("nomor-pendaftaran").value = registrationNumber;
+                const nomorPendaftaran = document.getElementById("nomor-pendaftaran").value;
+                const namaPeserta = document.getElementById("nama-peserta").value;
+                const tempatLahir = document.getElementById("tempat-lahir").value;
+                const tanggalLahir = document.getElementById("tanggal-lahir").value;
+                const nomorAkta = document.getElementById("nomor-akta").value;
+                const nik = document.getElementById("nik").value;
+                const alamat = document.getElementById("alamat").value;
+                const pilihanSekolah = document.getElementById("pilihan-sekolah").value;
+
+                // Pass form data to print page URL
+                window.open("kartuPendaftaranPrint.html?" + 
+                            "nomorPendaftaran=" + encodeURIComponent(nomorPendaftaran) +
+                            "&namaPeserta=" + encodeURIComponent(namaPeserta) +
+                            "&tempatLahir=" + encodeURIComponent(tempatLahir) +
+                            "&tanggalLahir=" + encodeURIComponent(tanggalLahir) +
+                            "&nomorAkta=" + encodeURIComponent(nomorAkta) +
+                            "&nik=" + encodeURIComponent(nik) +
+                            "&alamat=" + encodeURIComponent(alamat) +
+                            "&pilihanSekolah=" + encodeURIComponent(pilihanSekolah), "_blank");
+            }
+        </script>
+
+          <h2>Informasi Penting</h2>
+          <ul>
+            <li>Kartu Pendaftaran ini wajib dibawa dan ditunjukkan saat pelaksanaan pendaftaran ulang di sekolah.</li>
+            <li>Membawa kartu/bukti identitas diri asli.</li>
+            <li>Membawa seluruh dokumen asli yang diupload.</li>
+          </ul>
+        </div>
+
+        <script>
+          const form = document.getElementById("registration-form");
+
+
+            const nomorPendaftaran = generateRandomId();
+            const namaPeserta = document.getElementById("nama-peserta").value;
+            const tempatLahir = document.getElementById("tempat-lahir").value;
+            const tanggalLahir = document.getElementById("tanggal-lahir").value;
+            const nisn = document.getElementById("nisn").value;
+            const nik = document.getElementById("nik").value;
+            const asalSekolah = document.getElementById("asal-sekolah").value;
+            const pilihanSekolah = document.getElementById("pilihan-sekolah").value;
+
+            document.getElementById("nomor-pendaftaran").value = nomorPendaftaran;
+
+            // Additional code to display the data in the form
+
+            // Reset form if needed
+
+          function generateRandomId() {
+            return Math.floor(Math.random() * 1000000000000000);
+          }
+        </script>
+
+        </body>
+      </div>
+    </div>
+  </body>
+</html>

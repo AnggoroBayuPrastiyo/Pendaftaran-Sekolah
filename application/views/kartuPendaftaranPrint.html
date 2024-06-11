@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Pendaftaran</title>
+    <link rel="stylesheet" href="kartu.css">
+    <style>
+        .print-btn {
+            margin-top: 20px;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1>Kartu Pendaftaran</h1>
+    <form id="registration-form">
+        <div class="form-group">
+            <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
+            <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="nama-peserta">Nama Peserta:</label>
+            <input type="text" id="nama-peserta" name="nama-peserta">
+        </div>
+
+        <div class="form-group">
+            <label for="tempat-lahir">Tempat Lahir:</label>
+            <input type="text" id="tempat-lahir" name="tempat-lahir">
+        </div>
+
+        <div class="form-group">
+            <label for="tanggal-lahir">Tanggal Lahir:</label>
+            <input type="date" id="tanggal-lahir" name="tanggal-lahir">
+        </div>
+
+        <div class="form-group">
+            <label for="nomor-akta">Nomor Akta Kelahiran:</label>
+            <input type="number" id="nomor-akta" name="nomor-akta">
+        </div>
+
+        <div class="form-group">
+            <label for="nik">NIK:</label>
+            <input type="number" id="nik" name="nik">
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" name="alamat">
+        </div>
+
+        <div class="form-group">
+            <label for="pilihan-sekolah">Pilihan Sekolah:</label>
+            <input type="text" id="pilihan-sekolah" name="pilihan-sekolah" readonly value="SD Negeri Ceria">
+        </div>
+    </form>
+    <div class="print-btn">
+        <button onclick="window.print()">Cetak Kartu</button>
+    </div>
+
+    <h2>Informasi Penting</h2>
+    <ul>
+        <li>Kartu Pendaftaran ini wajib dibawa dan ditunjukkan saat pelaksanaan pendaftaran ulang di sekolah.</li>
+        <li>Membawa kartu/bukti identitas diri asli.</li>
+        <li>Membawa seluruh dokumen asli yang diupload.</li>
+    </ul>
+    <script>
+        // Retrieve form data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("nomor-pendaftaran").value = urlParams.get("nomorPendaftaran");
+        document.getElementById("nama-peserta").value = urlParams.get("namaPeserta");
+        document.getElementById("tempat-lahir").value = urlParams.get("tempatLahir");
+        document.getElementById("tanggal-lahir").value = urlParams.get("tanggalLahir");
+        document.getElementById("nomor-akta").value = urlParams.get("nomorAkta");
+        document.getElementById("nik").value = urlParams.get("nik");
+        document.getElementById("alamat").value = urlParams.get("alamat");
+        document.getElementById("pilihan-sekolah").value = urlParams.get("pilihanSekolah");
+    </script>
+</div>
+</body>
+</html>
