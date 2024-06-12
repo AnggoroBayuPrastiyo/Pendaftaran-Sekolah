@@ -53,5 +53,6 @@ $route['default_controller'] = 'dashboard';
 $route['classes'] = 'classes';
 $route['subjects'] = 'subjects';
 $route['pengumuman'] = 'pengumuman';
+$route['informasi'] = 'informasi';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
