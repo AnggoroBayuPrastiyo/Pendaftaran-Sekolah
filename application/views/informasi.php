@@ -28,6 +28,7 @@
         <!-- kita ngoding nya di sini di class main, nanti jangan lupa page di link ke hfref nya-->
         <h1>Informasi Pendaftaran</h1>
         <link rel="informasi pendaftaran" href="informasi.html"><br>
+        <br />
         <p>
           SMA Negeri Ceria pada Tahun Pelajaran 2024/2025 menerima Peserta Didik
           Baru (PDB) dengan ketentuan sebagai berikut:
@@ -91,6 +92,7 @@
           <li>Biaya Pendaftaran Rp. 100.000</li>
           <li>Biaya Daftar Ulang Rp. 500.000</li>
         </ul>
+        <br />
       </div>
     </div>
   </body>
