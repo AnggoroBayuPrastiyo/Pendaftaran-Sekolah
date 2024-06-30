@@ -31,7 +31,26 @@
         <div class="contentPengumuman">
           <!-- kita ngoding nya di sini di class main, nanti jangan lupa page di link ke hfref nya-->
           <h1>Pengumuman Hasil Seleksi</h1>
-          <p>saat ini anda belom bisa melihat pengumuman hasi seleksi</p>
+          <!--<p>saat ini anda belom bisa melihat pengumuman hasi seleksi</p>-->
+          <table>
+        <tr>
+            <th>Nama</th>
+            <th>Nilai</th>
+            <th>Status</th>
+        </tr>
+
+        <?php
+        if ($result->num_rows > 0) {
+            // Output data setiap baris
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["nama"]. "</td><td>" . $row["nilai"]. "</td><td>" . $row["status"]. "</td></tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>Tidak ada data</td></tr>";
+        }
+        $conn->close();
+        ?>
+    </table>
         </div>
       </div>
     </body>
