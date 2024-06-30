@@ -10,7 +10,7 @@ class Registration extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('seleksi_form');
+        $this->load->view('seleksi');
     }
 
     public function process_form() {
