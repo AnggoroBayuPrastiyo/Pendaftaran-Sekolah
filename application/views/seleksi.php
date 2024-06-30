@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Sekolah Cerita</title>
       <!-- ini ada sedikit perubahan di bagian link -->
-      <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+      <link rel="stylesheet" href="<?= base_url('assets/css/hasilSeleksi.css'); ?>">
       <!-- ini ada sedikit perubahan di bagian link -->
     </head>
     <body>
@@ -32,25 +32,20 @@
           <!-- kita ngoding nya di sini di class main, nanti jangan lupa page di link ke hfref nya-->
           <h1>Pengumuman Hasil Seleksi</h1>
           <!--<p>saat ini anda belom bisa melihat pengumuman hasi seleksi</p>-->
-          <table>
-        <tr>
-            <th>Nama</th>
-            <th>Nilai</th>
-            <th>Status</th>
-        </tr>
-
-        <?php
-        if ($result->num_rows > 0) {
-            // Output data setiap baris
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["nama"]. "</td><td>" . $row["nilai"]. "</td><td>" . $row["status"]. "</td></tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>Tidak ada data</td></tr>";
-        }
-        $conn->close();
-        ?>
-    </table>
+          <form id="seleksi" action="<?php echo site_url('seleksi/process_form'); ?>" method="post">
+                <div class="form-group">
+                    <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
+                    <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tempat_lahir">Tempat Lahir:</label>
+                    <input type="text" id="tempat_lahir" name="tempat_lahir" required>
+                </div>
+          </form>
         </div>
       </div>
     </body>
