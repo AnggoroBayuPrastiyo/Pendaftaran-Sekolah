@@ -32,7 +32,7 @@
           <!-- kita ngoding nya di sini di class main, nanti jangan lupa page di link ke hfref nya-->
           <h1>Pengumuman Hasil Seleksi</h1>
           <!--<p>saat ini anda belom bisa melihat pengumuman hasi seleksi</p>-->
-          <form id="seleksi" action="<?php echo site_url('seleksi/process_form'); ?>" method="post">
+          <form id="seleksi-form" action="<?php echo site_url('seleksi/process_form'); ?>" method="post">
                 <div class="form-group">
                     <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
                     <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
