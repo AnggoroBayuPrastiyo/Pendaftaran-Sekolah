@@ -9,9 +9,10 @@
 <body>
     <div class="container">
         <h1>Hasil Seleksi PPDB SMA</h1>
-        <p>Nama Lengkap: <?= isset($nama_peserta); ?></p>
-        <p>Tanggal Lahir: <?= isset($tanggal_lahir); ?></p>
-        <p>Hasil Seleksi Anda: <?= isset($hasil_seleksi); ?></p>
+        <p>Nomor Pendaftaran: <?= isset($nomor_pendaftaran) ? $nomor_pendaftaran : 'Nomor Pendaftaran tidak tersedia'; ?></p>
+        <p>Nama Lengkap: <?= isset($nama_peserta) ? $nama_peserta : 'Nama Peserta tidak tersedia'; ?></p>
+        <p>Tanggal Lahir: <?= isset($tanggal_lahir) ? $tanggal_lahir : 'Tanggal Lahir tidak tersedia'; ?></p>
+        <p>Hasil Seleksi Anda: <?= isset($hasil_seleksi) ? $hasil_seleksi : 'Belum ada hasil seleksi'; ?></p>
         <a href="<?= site_url('seleksi'); ?>">Kembali</a>
     </div>
 </body>
