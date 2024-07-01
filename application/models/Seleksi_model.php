@@ -5,7 +5,7 @@ class Seleksi_model extends CI_Model {
         $this->db->from('seleksi s');
         $this->db->join('registrations r', 'r.nomor_pendaftaran = s.nomor_pendaftaran');
         $this->db->where('r.nomor_pendaftaran', $nomor_pendaftaran);
-        $this->db->where('r.nama_peserta', $nama);
+        $this->db->where('r.nama_peserta', $nama_peserta);
         $this->db->where('r.tanggal_lahir', $tanggal_lahir);
         $query = $this->db->get();
 
