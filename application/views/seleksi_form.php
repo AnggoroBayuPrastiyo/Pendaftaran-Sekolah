@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Sekolah Cerita</title>
+      <title>Sekolah Ceria</title>
       <!-- ini ada sedikit perubahan di bagian link -->
       <link rel="stylesheet" href="<?= base_url('assets/css/hasilSeleksi.css'); ?>">
       <!-- ini ada sedikit perubahan di bagian link -->
@@ -42,9 +42,11 @@
                     <input type="text" id="nama" name="nama" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="tempat_lahir">Tempat Lahir:</label>
-                    <input type="text" id="tempat_lahir" name="tempat_lahir" required>
+                    <label for="tanggal_lahir">Tempat Lahir:</label>
+                    <input type="text" id="tanggal_lahir" name="tanggal_lahir" required>
                 </div>
+                </div>
+                    <button type="submit">Lihat Hasil</button>
           </form>
         </div>
       </div>
