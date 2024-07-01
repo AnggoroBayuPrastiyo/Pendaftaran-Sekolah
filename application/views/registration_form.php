@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="print-btn">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Daftar</button>
                 </div>
             </form>
 

@@ -35,11 +35,11 @@
           <form id="seleksi-form" action="<?php echo site_url('seleksi/process_form'); ?>" method="post">
                 <div class="form-group">
                     <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
-                    <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
+                    <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" required>
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama Lengkap:</label>
-                    <input type="text" id="nama" name="nama" readonly>
+                    <input type="text" id="nama" name="nama" required>
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir:</label>

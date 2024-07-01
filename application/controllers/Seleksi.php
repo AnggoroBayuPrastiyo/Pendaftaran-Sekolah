@@ -14,19 +14,35 @@ class Seleksi extends CI_Controller {
     }
 
     public function process_form() {
-        if ($this->input->method() === 'post') {
-            $data = array(
-                'nomor_pendaftaran' => rand(100000, 999999),
-                'tanggal_lahir' => $this->input->post('tanggal_lahir', TRUE),
-            );
+        $nomor_pendaftaran = $this->input->post('nomor_pendaftaran');
+        $nama = $this->input->post('nama');
+        $tanggal_lahir = $this->input->post('tanggal_lahir');
+    
+        $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
+        $this->db->where('nama', $nama);
+        $this->db->where('tanggal_lahir', $tanggal_lahir);
+        $result = $this->db->get('registration');
+    
+        if ($result->num_rows() > 0) {
+          $data['hasil'] = 'Diterima';
+        } else {
+          $data['hasil'] = 'Ditolak';
+        }
+    
+        $this->load->view('hasil', $data);
 
             // Save the data to the database
             $this->Seleksi_model->save_seleksi($data);
 
             // Pass data to the view
             $this->load->view('seleksi_result', $data);
-        } else {
-            redirect('seleksi');
+            if ($hasil !== false) {
+                // Jika data ditemukan, tampilkan hasil
+                $data['hasil'] = $hasil;
+                $this->load->view('seleksi_result', $data);
+            } else {
+                // Jika data tidak ditemukan, arahkan kembali ke halaman seleksi
+                redirect('seleksi');
         }
     }
 }

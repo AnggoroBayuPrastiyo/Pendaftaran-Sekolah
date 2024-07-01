@@ -9,22 +9,9 @@
 <body>
     <div class="container">
         <h1>Hasil Seleksi PPDB SMA</h1>
-        <div class="form-group">
-            <label>Nama Lengkap:</label>
-            <p><?php echo $nama; ?></p>
-        </div>
-
-        <div class="form-group">
-            <label>Nilai:</label>
-            <p><?php echo $nilai; ?></p>
-        </div>
-
-        <div class="form-group">
-            <label>Status:</label>
-            <p><?php echo $status; ?></p>
-        </div>
-
-        <button onclick="window.print()">Print Hasil Seleksi</button>
+        <p>Hasil Seleksi Anda: <?= $hasil; ?></p>
+        <a href="<?= site_url('seleksi'); ?>">Kembali</a>
+    </div>
     </div>
 </body>
 </html>
