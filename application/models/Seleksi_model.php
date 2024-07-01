@@ -1,6 +1,6 @@
 <?php
 class Seleksi_model extends CI_Model {
-    public function get_hasil_seleksi($nomor_pendaftaran, $nama, $tanggal_lahir) {
+    public function get_hasil_seleksi($nomor_pendaftaran, $nama_peserta, $tanggal_lahir) {
         $this->db->select('s.hasil');
         $this->db->from('seleksi s');
         $this->db->join('registrations r', 'r.nomor_pendaftaran = s.nomor_pendaftaran');
