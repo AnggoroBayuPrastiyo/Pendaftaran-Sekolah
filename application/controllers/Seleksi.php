@@ -24,25 +24,15 @@ class Seleksi extends CI_Controller {
         $result = $this->db->get('registrations');
     
         if ($result->num_rows() > 0) {
-          $data['hasil_seleksi'] = 'Diterima';
+            $data['hasil_seleksi'] = 'Diterima';
         } else {
-          $data['hasil_seleksi'] = 'Ditolak';
+            $data['hasil_seleksi'] = 'Ditolak';
         }
     
+        // Pass data to the view
         $this->load->view('hasil', $data);
 
-            // Save the data to the database
-            // $this->Seleksi_model->save_seleksi($data);
-
-            // Pass data to the view
-            $this->load->view('hasil', $data);
-            if ($hasil !== false) {
-                // Jika data ditemukan, tampilkan hasil
-                $data['hasil_seleksi'] = $hasil;
-                $this->load->view('hasil', $data);
-            } else {
-                // Jika data tidak ditemukan, arahkan kembali ke halaman seleksi
-                redirect('seleksi');
-        }
+        // Uncomment the following line if you want to save the data to the database
+        // $this->Seleksi_model->save_seleksi($data);
     }
 }
