@@ -38,8 +38,8 @@
                     <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" required>
                 </div>
                 <div class="form-group">
-                    <label for="nama">Nama Lengkap:</label>
-                    <input type="text" id="nama" name="nama" required>
+                    <label for="nama_peserta">Nama Lengkap:</label>
+                    <input type="text" id="nama_peserta" name="nama_peserta" required>
                 </div>
                 <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir:</label>
