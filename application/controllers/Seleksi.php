@@ -36,9 +36,9 @@ class Seleksi extends CI_Controller {
 
             // Pass data to the view
             $this->load->view('hasil', $data);
-            if ($hasil_seleksi !== false) {
+            if ($hasil !== false) {
                 // Jika data ditemukan, tampilkan hasil
-                $data['hasil_seleksi'] = $hasil_seleksi;
+                $data['hasil_seleksi'] = $hasil;
                 $this->load->view('hasil', $data);
             } else {
                 // Jika data tidak ditemukan, arahkan kembali ke halaman seleksi
