@@ -34,8 +34,8 @@
           <!--<p>saat ini anda belom bisa melihat pengumuman hasi seleksi</p>-->
           <form id="seleksi-form" action="<?php echo site_url('seleksi/process_form'); ?>" method="post">
                 <div class="form-group">
-                    <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
-                    <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" required>
+                    <label for="nomor_pendaftaran">Nomor Pendaftaran:</label>
+                    <input type="text" id="nomor_pendaftaran" name="nomor_pendaftaran" required>
                 </div>
                 <div class="form-group">
                     <label for="nama_peserta">Nama Lengkap:</label>
