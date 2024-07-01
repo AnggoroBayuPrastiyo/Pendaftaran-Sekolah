@@ -21,7 +21,7 @@ class Seleksi extends CI_Controller {
         $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
         $this->db->where('nama', $nama);
         $this->db->where('tanggal_lahir', $tanggal_lahir);
-        $result = $this->db->get('registration');
+        $result = $this->db->get('registrations');
     
         if ($result->num_rows() > 0) {
           $data['hasil'] = 'Diterima';
