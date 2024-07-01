@@ -6,7 +6,7 @@ class Seleksi_model extends CI_Model {
         $this->load->database();
     }
 
-    public function save_registration($data) {
+    public function save_seleksi($data) {
         return $this->db->insert('seleksi', $data);
     }
 }
