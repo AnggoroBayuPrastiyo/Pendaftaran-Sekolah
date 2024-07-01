@@ -24,9 +24,9 @@ class Seleksi extends CI_Controller {
         $result = $this->db->get('registrations');
     
         if ($result->num_rows() > 0) {
-          $data['hasil'] = 'Diterima';
+          $data['hasil_seleksi'] = 'Diterima';
         } else {
-          $data['hasil'] = 'Ditolak';
+          $data['hasil_seleksi'] = 'Ditolak';
         }
     
         $this->load->view('hasil', $data);
@@ -38,7 +38,7 @@ class Seleksi extends CI_Controller {
             $this->load->view('hasil', $data);
             if ($hasil !== false) {
                 // Jika data ditemukan, tampilkan hasil
-                $data['hasil'] = $hasil;
+                $data['hasil_seleksi'] = $hasil;
                 $this->load->view('hasil', $data);
             } else {
                 // Jika data tidak ditemukan, arahkan kembali ke halaman seleksi
