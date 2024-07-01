@@ -32,7 +32,7 @@ class Seleksi extends CI_Controller {
         $this->load->view('hasil', $data);
 
             // Save the data to the database
-            $this->Seleksi_model->save_seleksi($data);
+            // $this->Seleksi_model->save_seleksi($data);
 
             // Pass data to the view
             $this->load->view('hasil', $data);
