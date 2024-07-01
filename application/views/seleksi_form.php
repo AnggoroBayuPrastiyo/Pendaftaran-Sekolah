@@ -42,7 +42,7 @@
                     <input type="text" id="nama" name="nama" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_lahir">Tempat Lahir:</label>
+                    <label for="tanggal_lahir">Tanggal Lahir:</label>
                     <input type="text" id="tanggal_lahir" name="tanggal_lahir" required>
                 </div>
                 </div>

@@ -16,7 +16,7 @@ class Seleksi extends CI_Controller {
     public function process_form() {
         if ($this->input->method() === 'post') {
             $data = array(
-                'nomor_pendaftaran' => $this->input->post('nomor_pendaftaran', TRUE),
+                'nomor_pendaftaran' => rand(100000, 999999),
                 'tanggal_lahir' => $this->input->post('tanggal_lahir', TRUE),
             );
 
