@@ -9,6 +9,9 @@
 <body>
     <div class="container">
         <h1>Hasil Seleksi PPDB SMA</h1>
+        <p>Nomor Pendaftaran: <?= $nomor_pendaftaran; ?></p>
+        <p>Nama Lengkap: <?= $nama_lengkap; ?></p>
+        <p>Tanggal Lahir: <?= $tanggal_lahir; ?></p>
         <p>Hasil Seleksi Anda: <?= $hasil_seleksi; ?></p>
         <a href="<?= site_url('seleksi'); ?>">Kembali</a>
     </div>
