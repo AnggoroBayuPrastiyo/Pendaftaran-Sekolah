@@ -19,7 +19,7 @@ class Seleksi extends CI_Controller {
         $tanggal_lahir = $this->input->post('tanggal_lahir');
     
         $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
-        $this->db->where('nama', $nama);
+        $this->db->where('nama_pendaftar', $nama_pendaftar);
         $this->db->where('tanggal_lahir', $tanggal_lahir);
         $result = $this->db->get('registrations');
     
