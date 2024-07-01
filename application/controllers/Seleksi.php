@@ -35,11 +35,11 @@ class Seleksi extends CI_Controller {
             $this->Seleksi_model->save_seleksi($data);
 
             // Pass data to the view
-            $this->load->view('seleksi_result', $data);
+            $this->load->view('hasil', $data);
             if ($hasil !== false) {
                 // Jika data ditemukan, tampilkan hasil
                 $data['hasil'] = $hasil;
-                $this->load->view('seleksi_result', $data);
+                $this->load->view('hasilt', $data);
             } else {
                 // Jika data tidak ditemukan, arahkan kembali ke halaman seleksi
                 redirect('seleksi');
