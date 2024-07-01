@@ -15,7 +15,7 @@ class Seleksi extends CI_Controller {
 
     public function process_form() {
         $nomor_pendaftaran = $this->input->post('nomor_pendaftaran');
-        $nama = $this->input->post('nama');
+        $nama_pendaftar = $this->input->post('nama_pendaftar');
         $tanggal_lahir = $this->input->post('tanggal_lahir');
     
         $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
