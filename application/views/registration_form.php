@@ -13,17 +13,6 @@
     <h3>Sekolah Ceria 😄</h3>
   </div>
   <div class="container">
-    <nav>
-      <h5>Menu</h5>
-      <ul>
-        <li><a href="<?php echo base_url(); ?>">Beranda</a></li>
-        <li><a href="<?php echo base_url('informasi'); ?>">Informasi Pendaftaran</a></li>
-        <li><a href="<?php echo base_url('formulir'); ?>">Isi Formulir Pendaftaran</a></li>
-        <li><a href="<?php echo base_url('kartuPendaftaran'); ?>">Cetak Kartu Pendaftaran</a></li>
-        <li><a href="<?php echo base_url('pengumuman'); ?>">Pengumuman Hasil</a></li>
-        <li><a href="<?php echo base_url('kontak'); ?>">Kontak Kami</a></li>
-      </ul>
-    </nav>
     <div class="main">
       <h1>Kartu Pendaftaran</h1>
 
@@ -49,7 +38,7 @@
         </div>
 
         <div class="form-group">
-          <label for='jenis_kelamin'>Jenis Kelamin</label> <br>
+          <label for='jenis_kelamin'>Jenis Kelamin:</label> <br>
           <select id="jenis_kelamin" name="jenis_kelamin" required>
             <option disabled selected>Pilih Jenis Kelamin</option>
             <option value="lk">Laki-laki</option>
