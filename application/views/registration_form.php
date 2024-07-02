@@ -83,8 +83,12 @@
         </div>
 
         <div class="form-group">
-          <label for="pilihan_sekolah">Pilihan Sekolah:</label>
-          <input type="text" id="pilihan_sekolah" name="pilihan_sekolah" readonly value="SD Negeri Ceria">
+          <label for='pilih_jurusan'>Pilih Jurusan</label> <br>
+          <select id="pilih_jurusan" name="pilih_jurusan" required>
+            <option disabled selected>Pilih Jurusan</option>
+            <option value="lk">IPA</option>
+            <option value="pr">IPS</option>
+          </select>
         </div>
 
         <div class="print-btn">
