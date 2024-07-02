@@ -26,7 +26,7 @@ class Registration extends CI_Controller {
                 'alamat' => $this->input->post('alamat', TRUE),
                 'nama_wali' => $this->input->post('nama_wali', TRUE),
                 'nomor_hp' => $this->input->post('nomor_hp', TRUE),
-                'pilihan_sekolah' => $this->input->post('pilihan_sekolah', TRUE)
+                'pilih_jurusan' => $this->input->post('pilih_jurusan', TRUE)
             );
 
             // Save the data to the database

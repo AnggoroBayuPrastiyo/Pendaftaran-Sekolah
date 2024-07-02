@@ -65,8 +65,8 @@
     </div>
 
     <div class="form-group">
-      <label>Pilihan Sekolah:</label>
-      <p><?php echo isset($pilihan_sekolah) ? htmlspecialchars($pilihan_sekolah) : 'SD Negeri Ceria'; ?></p>
+      <label>Pilihan Jurusan:</label>
+      <p><?php echo isset($pilih_jurusan) ? ($pilih_jurusan == 'lk' ? 'IPA' : 'IPS') : ''; ?></p>
     </div>
 
     <button onclick="window.print()">Print Kartu Pendaftaran</button>
