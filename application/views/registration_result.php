@@ -7,7 +7,14 @@
   <meta name="description" content="Kartu Pendaftaran Sekolah">
   <meta name="keywords" content="kartu pendaftaran, sekolah, pendaftaran">
   <title>Kartu Pendaftaran</title>
-  <link rel="stylesheet" href="<?php echo base_url('assets/css2/kartu.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css2/print.css'); ?>">
+  <style>
+    @media print {
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -65,12 +72,23 @@
     </div>
 
     <div class="form-group">
-      <label>Pilihan Sekolah:</label>
-      <p><?php echo isset($pilihan_sekolah) ? htmlspecialchars($pilihan_sekolah) : 'SD Negeri Ceria'; ?></p>
+      <label>Pilih Jurusan:</label>
+      <p><?php echo isset($pilih_jurusan) ? ($pilih_jurusan == 'lk' ? 'IPA' : 'IPS') : ''; ?></p>
     </div>
 
-    <button onclick="window.print()">Print Kartu Pendaftaran</button>
+    <div class="no-print">
+      <button onclick="printAndRedirect()">Print Kartu Pendaftaran</button>
+    </div>
   </div>
+
+  <script>
+    function printAndRedirect() {
+      window.print();
+      setTimeout(function () {
+        window.location.href = '<?php echo base_url('user'); ?>';
+      }, 1000);
+    }
+  </script>
 </body>
 
 </html>
