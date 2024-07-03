@@ -66,9 +66,7 @@ class Upload extends CI_Controller {
         if (!empty($errors)) {
             $this->load->view('upload_form', array('error' => implode('<br>', $errors)));
         } else {
-            // Menambahkan data nama ke array
-            $saved_data['nama'] = $this->input->post('nama');
-
+           
             // Simpan informasi ke database
             if ($this->Upload_model->save_file_info($saved_data)) {
                 $this->load->view('upload_success', array('upload_data' => $upload_data));
