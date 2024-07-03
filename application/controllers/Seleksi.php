@@ -6,7 +6,6 @@ class Seleksi extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('User_model');
         $this->load->model('Seleksi_model');
         $this->load->library('session'); // Memastikan library session dimuat
     }
@@ -19,17 +18,6 @@ class Seleksi extends CI_Controller {
         $nomor_pendaftaran = $this->input->post('nomor_pendaftaran');
         $nama_peserta = $this->input->post('nama_peserta');
         $tanggal_lahir = $this->input->post('tanggal_lahir');
-        
-        // Mendapatkan user_id dari session
-        $user_id = $this->session->userdata('user_id');
-
-        // Periksa apakah user sudah melihat hasil seleksi
-        $user = $this->User_model->get_user($user_id);
-
-        if ($user->has_seen_result) {
-            show_error('Anda hanya dapat melihat hasil seleksi satu kali.');
-            return;
-        }
 
         $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
         $this->db->where('nama_peserta', $nama_peserta);
