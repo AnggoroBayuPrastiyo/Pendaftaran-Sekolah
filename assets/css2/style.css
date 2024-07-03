@@ -27,6 +27,7 @@ body {
 	display: flex;
 	width: 100vw;
 	margin: 0px 10px 0px 10px;
+	
 }
 
 nav {
@@ -176,3 +177,4 @@ h3 {
 .contentContact ul li {
 	margin-left: 30px;
 }
+
