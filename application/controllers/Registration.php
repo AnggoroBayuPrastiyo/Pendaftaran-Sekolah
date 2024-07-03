@@ -5,7 +5,8 @@ class Registration extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->helper('url');
+        $this->load->helper(array('url', 'form'));
+        $this->load->library('session');
         $this->load->model('Registration_model');
     }
 
@@ -32,10 +33,21 @@ class Registration extends CI_Controller {
             // Save the data to the database
             $this->Registration_model->save_registration($data);
 
-            // Pass data to the view
-            $this->load->view('registration_result', $data);
+            // Save data to session
+            $this->session->set_userdata('registration_data', $data);
+
+            // Redirect to upload page
+            redirect('upload');
         } else {
             redirect('registration');
         }
+    }
+
+    public function result() {
+        // Get data from session
+        $data = $this->session->userdata('view_data');
+
+        // Load the result view with data
+        $this->load->view('registration_result', $data);
     }
 }

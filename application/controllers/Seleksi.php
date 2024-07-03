@@ -6,7 +6,9 @@ class Seleksi extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('User_model');
         $this->load->model('Seleksi_model');
+        $this->load->library('session'); // Memastikan library session dimuat
     }
 
     public function index() {
@@ -17,23 +19,37 @@ class Seleksi extends CI_Controller {
         $nomor_pendaftaran = $this->input->post('nomor_pendaftaran');
         $nama_peserta = $this->input->post('nama_peserta');
         $tanggal_lahir = $this->input->post('tanggal_lahir');
-    
+        
+        // Mendapatkan user_id dari session
+        $user_id = $this->session->userdata('user_id');
+
+        // Periksa apakah user sudah melihat hasil seleksi
+        $user = $this->User_model->get_user($user_id);
+
+        if ($user->has_seen_result) {
+            show_error('Anda hanya dapat melihat hasil seleksi satu kali.');
+            return;
+        }
+
         $this->db->where('nomor_pendaftaran', $nomor_pendaftaran);
         $this->db->where('nama_peserta', $nama_peserta);
         $this->db->where('tanggal_lahir', $tanggal_lahir);
         $result = $this->db->get('registrations');
 
-         // Siapkan data untuk ditampilkan di halaman hasil
-         $data['nomor_pendaftaran'] = $nomor_pendaftaran;
-         $data['nama_peserta'] = $nama_peserta;
-         $data['tanggal_lahir'] = $tanggal_lahir;
-    
+        // Siapkan data untuk ditampilkan di halaman hasil
+        $data['nomor_pendaftaran'] = $nomor_pendaftaran;
+        $data['nama_peserta'] = $nama_peserta;
+        $data['tanggal_lahir'] = $tanggal_lahir;
+
         if ($result->num_rows() > 0) {
             $data['hasil_seleksi'] = 'Diterima';
         } else {
             $data['hasil_seleksi'] = 'Ditolak';
         }
-    
+
+        // Tandai hasil seleksi sudah dilihat
+        $this->User_model->mark_result_as_seen($user_id);
+
         // Pass data to the view
         $this->load->view('hasil', $data);
 
@@ -41,3 +57,4 @@ class Seleksi extends CI_Controller {
         // $this->Seleksi_model->save_seleksi($data);
     }
 }
+?>
