@@ -9,5 +9,10 @@ class Registration_model extends CI_Model {
     public function save_registration($data) {
         return $this->db->insert('registrations', $data);
     }
+
+    public function get_all_registrations() {
+        $query = $this->db->get('registrations');
+        return $query->result_array();
+    }
 }
 ?>

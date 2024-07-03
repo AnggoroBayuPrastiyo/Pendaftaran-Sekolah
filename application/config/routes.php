@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	$route['default_controller'] = 'welcome';
 |
 | This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
+| URI contains no data. In the above example, the "welcome" class 
 | would be loaded.
 |
 |	$route['404_override'] = 'errors/page_missing';
@@ -55,6 +55,7 @@ $route['registration'] = 'registration';
 $route['registration_result'] = 'registration/result';
 $route['upload'] = 'upload';
 $route['upload/do_upload'] = 'upload/do_upload';
+$route['admin'] = 'admin/index';
 $route['seleksi'] = 'seleksi';
 $route['informasi'] = 'informasi';
 $route['404_override'] = '';
