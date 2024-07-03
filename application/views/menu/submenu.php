@@ -79,7 +79,12 @@
       <form action="<?= base_url('menu/submenu')?>" method="post">
         <div class="modal-body">
           <div class="form-group">
-            <input type="text" class="form-control" id="title" name="title" placeholder="Menu Name">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
+          </div>
+          <div class="form-group">
+            <select name="menu_id" id="menu_id" class="form-controlg">
+              <option value="">Select Menu</option>
+            </select>
           </div>
         </div>
         <div class="modal-footer">
