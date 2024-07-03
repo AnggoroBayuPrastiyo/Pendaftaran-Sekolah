@@ -59,3 +59,4 @@ $route['seleksi'] = 'seleksi';
 $route['informasi'] = 'informasi';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['view-result'] = 'seleksi/view_result';
