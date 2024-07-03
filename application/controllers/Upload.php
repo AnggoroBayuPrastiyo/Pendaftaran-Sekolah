@@ -28,6 +28,7 @@ class Upload extends CI_Controller {
 
         $upload_data = array();
         $errors = array();
+        $saved_data = array();
 
         for ($i = 0; $i < $count; $i++) {
             $_FILES['userfile']['name'] = $files['userfiles']['name'][$i];
@@ -42,15 +43,21 @@ class Upload extends CI_Controller {
                 $data = $this->upload->data();
                 $upload_data[] = $data;
 
-                 // Simpan informasi file ke database
-                 $file_data = array(
-                    'ijazah' => $data['file_name'], // Simpan nama file yang diunggah
-                    'kk' => $data['file_name'],
-                    'akte' => $data['file_name'],
-                    'ktp' => $data['file_name']
-                );
-
-                $this->Upload_model->save_file_info($file_data);
+                // Simpan informasi file ke array
+                switch ($i) {
+                    case 0:
+                        $saved_data['ijazah'] = $data['file_name'];
+                        break;
+                    case 1:
+                        $saved_data['kk'] = $data['file_name'];
+                        break;
+                    case 2:
+                        $saved_data['akte'] = $data['file_name'];
+                        break;
+                    case 3:
+                        $saved_data['ktp'] = $data['file_name'];
+                        break;
+                }
             } else {
                 $errors[] = $this->upload->display_errors();
             }
@@ -59,7 +66,16 @@ class Upload extends CI_Controller {
         if (!empty($errors)) {
             $this->load->view('upload_form', array('error' => implode('<br>', $errors)));
         } else {
-            $this->load->view('upload_success', array('upload_data' => $upload_data));
+            // Menambahkan data nama ke array
+            $saved_data['nama'] = $this->input->post('nama');
+
+            // Simpan informasi ke database
+            if ($this->Upload_model->save_file_info($saved_data)) {
+                $this->load->view('upload_success', array('upload_data' => $upload_data));
+            } else {
+                echo "Error inserting data into database.";
+            }
         }
     }
 }
+?>
