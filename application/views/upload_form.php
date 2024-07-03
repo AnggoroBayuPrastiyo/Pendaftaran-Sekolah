@@ -19,8 +19,8 @@
         <label for="akte">Upload Akta Kelahiran</label><br>
         <input type="file" name="userfiles[]" size="20" id="akte"/><br /><br />
 
-        <label for="foto">Upload KTP OrangTua/Wali</label><br>
-        <input type="file" name="userfiles[]" size="20" id="foto"/><br /><br />
+        <label for="ktp">Upload KTP OrangTua/Wali</label><br>
+        <input type="file" name="userfiles[]" size="20" id="ktp"/><br /><br />
 
         <input type="submit" value="mengunggah" />
 

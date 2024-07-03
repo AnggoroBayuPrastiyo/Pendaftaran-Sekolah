@@ -7,6 +7,7 @@ class Upload extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->library('upload');
+        $this->load->model('Upload_model'); // Memuat model
     }
 
     public function index() {
@@ -27,6 +28,7 @@ class Upload extends CI_Controller {
 
         $upload_data = array();
         $errors = array();
+        $saved_data = array();
 
         for ($i = 0; $i < $count; $i++) {
             $_FILES['userfile']['name'] = $files['userfiles']['name'][$i];
@@ -38,7 +40,24 @@ class Upload extends CI_Controller {
             $this->upload->initialize($config);
 
             if ($this->upload->do_upload('userfile')) {
-                $upload_data[] = $this->upload->data();
+                $data = $this->upload->data();
+                $upload_data[] = $data;
+
+                // Simpan informasi file ke array
+                switch ($i) {
+                    case 0:
+                        $saved_data['ijazah'] = $data['file_name'];
+                        break;
+                    case 1:
+                        $saved_data['kk'] = $data['file_name'];
+                        break;
+                    case 2:
+                        $saved_data['akte'] = $data['file_name'];
+                        break;
+                    case 3:
+                        $saved_data['ktp'] = $data['file_name'];
+                        break;
+                }
             } else {
                 $errors[] = $this->upload->display_errors();
             }
@@ -47,7 +66,14 @@ class Upload extends CI_Controller {
         if (!empty($errors)) {
             $this->load->view('upload_form', array('error' => implode('<br>', $errors)));
         } else {
-            $this->load->view('upload_success', array('upload_data' => $upload_data));
+           
+            // Simpan informasi ke database
+            if ($this->Upload_model->save_file_info($saved_data)) {
+                $this->load->view('upload_success', array('upload_data' => $upload_data));
+            } else {
+                echo "Error inserting data into database.";
+            }
         }
     }
 }
+?>
