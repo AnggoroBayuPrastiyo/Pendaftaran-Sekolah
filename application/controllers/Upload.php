@@ -39,14 +39,18 @@ class Upload extends CI_Controller {
             $this->upload->initialize($config);
 
             if ($this->upload->do_upload('userfile')) {
+                $data = $this->upload->data();
+                $upload_data[] = $data;
+
                  // Simpan informasi file ke database
                  $file_data = array(
                     'ijazah' => $data['file_name'], // Simpan nama file yang diunggah
                     'kk' => $data['file_name'],
-                    'ktp' => $data['file_name'],
-                    'akte' => $data['file_name']
+                    'akte' => $data['file_name'],
+                    'ktp' => $data['file_name']
                 );
-                $upload_data[] = $this->upload->data();
+
+                $this->Upload_model->save_file_info($file_data);
             } else {
                 $errors[] = $this->upload->display_errors();
             }
