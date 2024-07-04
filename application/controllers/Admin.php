@@ -107,7 +107,7 @@ public function penerimaansiswa()
     $this->load->view('templates/footer');
   }
 
-  public function tabelsiswa()
+  public function tabelsiswa  ()
   {
 
 
