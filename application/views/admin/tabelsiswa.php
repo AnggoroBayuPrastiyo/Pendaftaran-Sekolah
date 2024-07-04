@@ -1,96 +1,84 @@
+<!-- Begin Page Content -->
 <div class="container-fluid">
-  <h1 class="h3 mb-4 text-gray-800">Registered Users</h1>
+
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800"><?= $title;?></h1>
+
+
   <div class="row">
-    <div class="col-lg-12">
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Nomor Pendaftaran</th>
-              <th>Nama Peserta</th>
-              <th>Tempat Lahir</th>
-              <th>Tanggal Lahir</th>
-              <th>Jenis Kelamin</th>
-              <th>Nomor Akta</th>
-              <th>NIK</th>
-              <th>Alamat</th>
-              <th>Nama Wali</th>
-              <th>Nomor HP</th>
-              <th>Ijazah</th>
-              <th>Kartu Keluarga</th>
-              <th>Akta Kelahiran</th>
-              <th>KTP</th>
-              <!-- Tambahkan kolom lain sesuai kebutuhan -->
-            </tr>
-          </thead>
-          <tbody>
-            <?php if (!empty($registrations)): ?>
-            <?php foreach ($registrations as $registration): ?>
-            <tr>
-              <td>
-                <?php echo isset($registration['nomor_pendaftaran']) ? htmlspecialchars($registration['nomor_pendaftaran']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php echo isset($registration['nama_peserta']) ? htmlspecialchars($registration['nama_peserta']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php echo isset($registration['tempat_lahir']) ? htmlspecialchars($registration['tempat_lahir']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php echo isset($registration['tanggal_lahir']) ? htmlspecialchars($registration['tanggal_lahir']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php echo isset($registration['jenis_kelamin']) ? htmlspecialchars($registration['jenis_kelamin']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php echo isset($registration['nomor_akta']) ? htmlspecialchars($registration['nomor_akta']) : 'N/A'; ?>
-              </td>
-              <td><?php echo isset($registration['nik']) ? htmlspecialchars($registration['nik']) : 'N/A'; ?></td>
-              <td><?php echo isset($registration['alamat']) ? htmlspecialchars($registration['alamat']) : 'N/A'; ?></td>
-              <td>
-                <?php echo isset($registration['nama_wali']) ? htmlspecialchars($registration['nama_wali']) : 'N/A'; ?>
-              </td>
-              <td><?php echo isset($registration['nomor_hp']) ? htmlspecialchars($registration['nomor_hp']) : 'N/A'; ?>
-              </td>
-              <td>
-                <?php if (!empty($registration['ijazah']) && file_exists(FCPATH . 'uploads/' . $registration['ijazah'])): ?>
-                <a href="<?php echo base_url('uploads/' . $registration['ijazah']); ?>" download>Download</a>
-                <?php else: ?>
-                <span>File tidak ditemukan</span>
-                <?php endif; ?>
-              </td>
-              <td>
-                <?php if (!empty($registration['kk']) && file_exists(FCPATH . 'uploads/' . $registration['kk'])): ?>
-                <a href="<?php echo base_url('uploads/' . $registration['kk']); ?>" download>Download</a>
-                <?php else: ?>
-                <span>File tidak ditemukan</span>
-                <?php endif; ?>
-              </td>
-              <td>
-                <?php if (!empty($registration['akte']) && file_exists(FCPATH . 'uploads/' . $registration['akte'])): ?>
-                <a href="<?php echo base_url('uploads/' . $registration['akte']); ?>" download>Download</a>
-                <?php else: ?>
-                <span>File tidak ditemukan</span>
-                <?php endif; ?>
-              </td>
-              <td>
-                <?php if (!empty($registration['ktp']) && file_exists(FCPATH . 'uploads/' . $registration['ktp'])): ?>
-                <a href="<?php echo base_url('uploads/' . $registration['ktp']); ?>" download>Download</a>
-                <?php else: ?>
-                <span>File tidak ditemukan</span>
-                <?php endif; ?>
-              </td>
-              <!-- Tambahkan kolom lain sesuai kebutuhan -->
-            </tr>
+    <div class="col-lg-6">
+      <?= form_error('menu','<div class="alert alert-danger" role="alert">','</div>')?>
+
+      <?= $this->session->flashdata('message')?>
+
+
+
+      <a href="" class="btn btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">Add New Menu</a>
+
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Menu</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php  $i =1;?>
+          <?php foreach((array)$siswa as $s) :?>
+          <tr>
+            <th scope="row"><?= $i;?></th>
+            <td><?= $s['menu']; ?></td>
+            <td>
+              <a href="" class="badge badge-success">edit</a>
+              <a href="" class="badge badge-danger">delete</a>
+
+            </td>
+          <tr>
+            <?php $i++?>
             <?php endforeach; ?>
-            <?php else: ?>
-            <tr>
-              <td colspan="14">Tidak ada data yang ditemukan.</td>
-            </tr>
-            <?php endif; ?>
-          </tbody>
-        </table>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+
+  <a href="<?= base_url('registration') ?>">Link ke registration</a>
+  <a href="<?= base_url('seleksi') ?>">Link ke seleksi</a>
+
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <form action="<?= base_url('menu')?>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
