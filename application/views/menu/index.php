@@ -1,53 +1,76 @@
-<!-- application/views/menu/index.php -->
-<div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Registered Users</h1>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive"> <!-- Tambahkan wrapper table-responsive -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nomor Pendaftaran</th>
-                            <th>Nama Peserta</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Nomor Akta</th>
-                            <th>NIK</th>
-                            <th>Alamat</th>
-                            <th>Nama Wali</th>
-                            <th>Nomor HP</th>
-                            <th>Ijazah</th>
-                            <th>Kartu Keluarga</th>
-                            <th>Akta Kelahiran</th>
-                            <th>KTP</th>
-                            <!-- Tambahkan kolom lain sesuai kebutuhan -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($registrations as $registration): ?>
-                        <tr>
-                            <td><?php echo $registration['nomor_pendaftaran']; ?></td>
-                            <td><?php echo $registration['nama_peserta']; ?></td>
-                            <td><?php echo $registration['tempat_lahir']; ?></td>
-                            <td><?php echo $registration['tanggal_lahir']; ?></td>
-                            <td><?php echo $registration['jenis_kelamin']; ?></td>
-                            <td><?php echo $registration['nomor_akta']; ?></td>
-                            <td><?php echo $registration['nik']; ?></td>
-                            <td><?php echo $registration['alamat']; ?></td>
-                            <td><?php echo $registration['nama_wali']; ?></td>
-                            <td><?php echo $registration['nomor_hp']; ?></td>
-                            <td><a href="<?php echo base_url('uploads/' . $registration['ijazah']); ?>" download>Download</a></td>
-                            <td><a href="<?php echo base_url('uploads/' . $registration['kk']); ?>" download>Download</a></td>
-                            <td><a href="<?php echo base_url('uploads/' . $registration['akte']); ?>" download>Download</a></td>
-                            <td><a href="<?php echo base_url('uploads/' . $registration['ktp']); ?>" download>Download</a></td>
-   
-                            <!-- Tambahkan kolom lain sesuai kebutuhan -->
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Menu extends CI_Controller  
+{
+  public function __construct()
+  {
+    parent::__construct();
+    is_logged_in();
+  }
+
+  public function index(){
+    $data['title'] = 'Menu Management';
+    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
+
+
+    $data['menu'] = $this->db->get('user_menu')->result_array();
+
+
+    $this->form_validation->set_rules('menu','Menu','required');
+
+
+
+    if($this->form_validation->run() == FALSE){
+    $this->load->view('templates/header' , $data);
+    $this->load->view('templates/sidebar' , $data);
+    $this->load->view('templates/topbar' , $data);
+    $this->load->view('menu/index' , $data);
+    $this->load->view('templates/footer');
+    } else {
+      $this->db->insert('user_menu', ['menu'=> $this->input->post('menu')]);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Add new menu</div>');
+      redirect('menu');
+    }
+    
+  }
+
+  public function submenu()
+  {
+    $data['title'] = 'Submenu Management';
+    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
+    $this->load->model('Menu_model','menu');
+
+    $data['submenu'] = $this->menu->getSubMenu();
+    $data['menu'] = $this->db->get('user_menu')->result_array();
+
+    $this->form_validation->set_rules('title','Title','required');
+    $this->form_validation->set_rules('menu_id','Menu','required');
+    $this->form_validation->set_rules('url','URL','required');
+    $this->form_validation->set_rules('icon','icon','required');
+
+    if($this->form_validation->run() == FALSE)
+    {
+      
+      $this->load->view('templates/header' , $data);
+      $this->load->view('templates/sidebar' , $data);
+      $this->load->view('templates/topbar' , $data);
+      $this->load->view('menu/submenu' , $data);
+      $this->load->view('templates/footer');
+    } else {
+      $data = [
+        'title' => $this->input->post('title'),
+        'menu_id' => $this->input->post('menu_id'),
+        'url' => $this->input->post('url'),
+        'icon' => $this->input->post('icon'),
+        'is_active' => $this->input->post('is_active')
+      ];
+      $this->db->insert('user_sub_menu', $data);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Add new sub menu</div>');
+      redirect('menu/submenu');
+    }
+
+  }
+
+
+}
