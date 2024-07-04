@@ -17,6 +17,7 @@ class Registration_model extends CI_Model {
     // Fungsi untuk menyimpan data registrasi ke dalam database
     public function save_registration($data) {
         $this->db->insert('registrations', $data); // 'registrations' adalah nama tabel registrasi di database Anda
+        return $this->db->insert_id(); // Mengembalikan ID dari baris yang baru saja dimasukkan
     }
 
 }

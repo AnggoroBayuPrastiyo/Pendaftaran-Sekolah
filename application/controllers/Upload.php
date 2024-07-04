@@ -9,6 +9,7 @@ class Upload extends CI_Controller {
         $this->load->library('upload');
         $this->load->library('session');
         $this->load->model('Upload_model'); // Memuat model
+        $this->load->model('Registration_model'); // Memuat model untuk pendaftaran
     }
 
     public function index() {
@@ -67,16 +68,15 @@ class Upload extends CI_Controller {
         if (!empty($errors)) {
             $this->load->view('upload_form', array('error' => implode('<br>', $errors)));
         } else {
+            // Get registration data from session
+            $registration_data = $this->session->userdata('registration_data');
+
+            // Merge upload data and registration data
+            $all_data = array_merge($registration_data, $saved_data);
             // Simpan informasi ke database
-            if ($this->Upload_model->save_file_info($saved_data)) {
-                // Get registration data from session
-                $registration_data = $this->session->userdata('registration_data');
-
-                // Merge upload data and registration data
-                $view_data = array_merge($registration_data, $saved_data);
-
+            if ($this->Registration_model->save_registration($all_data)) {
                 // Save view data to session
-                $this->session->set_userdata('view_data', $view_data);
+                $this->session->set_userdata('view_data', $all_data);
 
                 // Load the success view
                 $this->load->view('upload_success');
