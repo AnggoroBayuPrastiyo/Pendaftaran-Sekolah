@@ -10,7 +10,7 @@
 
 <body>
   <div class="logo">
-    
+
   </div>
   <div class="container">
     <div class="main">
@@ -41,8 +41,8 @@
           <label for="jenis_kelamin">Jenis Kelamin:</label>
           <select id="jenis_kelamin" name="jenis_kelamin" required>
             <option disabled selected>Pilih Jenis Kelamin</option>
-            <option value="lk">Laki-laki</option>
-            <option value="pr">Perempuan</option>
+            <option value="Laki-Laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
           </select>
         </div>
 
@@ -75,8 +75,8 @@
           <label for="pilih_jurusan">Pilih Jurusan:</label>
           <select id="pilih_jurusan" name="pilih_jurusan" required>
             <option disabled selected>Pilih Jurusan</option>
-            <option value="ipa">IPA</option>
-            <option value="ips">IPS</option>
+            <option value="IPA">IPA</option>
+            <option value="IPS">IPS</option>
           </select>
         </div>
 
