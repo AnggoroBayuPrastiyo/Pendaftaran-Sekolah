@@ -6,10 +6,15 @@ class Auth extends CI_Controller {
   {
    parent::__construct(); 
    $this->load->library('form_validation');
+  
 
   }
   public function index()
   {
+    if($this->session->userdata('email')){
+      redirect('user');
+     }
+
     $this->form_validation->set_rules('email','Email','trim|required|valid_email');
     $this->form_validation->set_rules('password','Password','trim|required');
     if ($this->form_validation->run() == false) {
@@ -38,8 +43,10 @@ class Auth extends CI_Controller {
 
           $data = [
             'email' => $user['email'],
-            'password' => $user['password']
+            'password' => $user['password'],
+            'role_id' => $user['role_id']
           ];
+          
           $this->session->set_userdata($data);
           if ($user['role_id'] == 1) {
             redirect('admin');
@@ -65,6 +72,9 @@ class Auth extends CI_Controller {
   }
   public function registration()
   {
+    if($this->session->userdata('email')){
+      redirect('user');
+     }
 
     $this->form_validation->set_rules('name','Name','required|trim');
     $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[user.email]', [
@@ -96,6 +106,9 @@ class Auth extends CI_Controller {
         'is_active' => 1,
         'date_created' => time(),
       ];
+      
+
+
       $this->db->insert('user', $data);
       $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Login</div>');
       redirect('auth');
@@ -107,5 +120,9 @@ class Auth extends CI_Controller {
     $this->session->unset_userdata('role_id');
     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">You have been logged out!d</div>');
     redirect('auth');
+  }
+  public function blocked()
+  {
+    echo 'access blocked';
   }
 }

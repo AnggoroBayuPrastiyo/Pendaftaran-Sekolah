@@ -8,7 +8,11 @@
 
   <div class="row">
     <div class="col-lg">
-      <?= form_error('menu','<div class="alert alert-danger" role="alert">','</div>')?>
+      <?php if(validation_errors()):?>
+      <div class="alert alert-danger" role="alert">
+        <?=validation_errors()?>
+      </div>
+      <?php endif ;?>
 
       <?= $this->session->flashdata('message')?>
 
@@ -79,7 +83,28 @@
       <form action="<?= base_url('menu/submenu')?>" method="post">
         <div class="modal-body">
           <div class="form-group">
-            <input type="text" class="form-control" id="title" name="title" placeholder="Menu Name">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
+          </div>
+          <div class="form-group">
+            <select name="menu_id" id="menu_id" class="form-control">
+              <option value="">Select Menu</option>
+              <?php foreach((array)$menu as $m) :?>
+              <option value="<?= $m['id'];?>"><?= $m['menu'];?></option>
+              <?php endforeach?>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="url" name="url" placeholder="Submenu url">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="icon" name="icon" placeholder="Submenu icon">
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active"
+                checked>
+              <label for="defaultCheck1" class="form-check-label">Active?</label>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
