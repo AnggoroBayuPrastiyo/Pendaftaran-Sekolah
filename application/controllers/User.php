@@ -97,19 +97,21 @@ class User extends CI_Controller
     } else {
       $current_password = $this->input->post('current_password');
       $new_password = $this->input->post('new_password1');
-      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Wrong Current Password!</div>');
-      redirect('user/changepassword');
-    } else {
-      if($current_password == $new_password) {
-        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password baru tydak boleh same dengan yang lama</div>');
-      redirect('user/changepassword');
-      } else {
-        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
-        $this->db->set('password', $password_hash);
-        $this->db->where('email', $this->session->userdata('email'));
-        $this->db->update('user');
-      }
+      
+    //   $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Wrong Current Password!</div>');
+    //   redirect('user/changepassword');
+    // } else {
+    //   if($current_password == $new_password) {
+    //     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password baru tydak boleh same dengan yang lama</div>');
+    //   redirect('user/changepassword');
+    //   } else {
+    //     $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+    //     $this->db->set('password', $password_hash);
+    //     $this->db->where('email', $this->session->userdata('email'));
+    //     $this->db->update('user');
+    //   }
         
     }
   }
