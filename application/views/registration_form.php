@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sekolah Ceria</title>
-  <link rel="stylesheet" href="<?php echo base_url('assets/css2/kartu.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css2/registerForm.css'); ?>">
 </head>
 
 <body>
   <div class="logo">
-    <h3>Sekolah Ceria 😄</h3>
+    
   </div>
   <div class="container">
     <div class="main">
-      <h1>Kartu Pendaftaran</h1>
+      <h1 class="title">Kartu Pendaftaran</h1>
 
       <form id="registration-form" action="<?php echo site_url('registration/process_form'); ?>" method="post">
         <div class="form-group">
           <label for="nomor-pendaftaran">Nomor Pendaftaran:</label>
-          <input type="text" id="nomor-pendaftaran" name="nomor-pendaftaran" readonly>
+          <input type="text" id="nomor-pendaftaran" name="nomor_pendaftaran" readonly>
         </div>
 
         <div class="form-group">
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-          <label for='jenis_kelamin'>Jenis Kelamin:</label> <br>
+          <label for="jenis_kelamin">Jenis Kelamin:</label>
           <select id="jenis_kelamin" name="jenis_kelamin" required>
             <option disabled selected>Pilih Jenis Kelamin</option>
             <option value="lk">Laki-laki</option>
@@ -67,16 +67,16 @@
         </div>
 
         <div class="form-group">
-          <label for="nomor_hp">Nomor Handphone :</label>
+          <label for="nomor_hp">Nomor Handphone:</label>
           <input type="number" id="nomor_hp" name="nomor_hp" required>
         </div>
 
         <div class="form-group">
-          <label for='pilih_jurusan'>Pilih Jurusan</label> <br>
+          <label for="pilih_jurusan">Pilih Jurusan:</label>
           <select id="pilih_jurusan" name="pilih_jurusan" required>
             <option disabled selected>Pilih Jurusan</option>
-            <option value="lk">IPA</option>
-            <option value="pr">IPS</option>
+            <option value="ipa">IPA</option>
+            <option value="ips">IPS</option>
           </select>
         </div>
 

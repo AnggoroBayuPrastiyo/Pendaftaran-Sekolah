@@ -8,6 +8,7 @@
   <meta name="keywords" content="kartu pendaftaran, sekolah, pendaftaran">
   <title>Kartu Pendaftaran</title>
   <link rel="stylesheet" href="<?php echo base_url('assets/css2/print.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/print.css  '); ?>">
   <style>
   @media print {
     .no-print {
