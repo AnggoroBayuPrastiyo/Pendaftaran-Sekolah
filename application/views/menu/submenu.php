@@ -58,11 +58,6 @@
     </div>
   </div>
 
-
-  <a href="<?= base_url('registration') ?>">Link ke registration</a>
-  <a href="<?= base_url('seleksi') ?>">Link ke seleksi</a>
-
-
 </div>
 <!-- /.container-fluid -->
 

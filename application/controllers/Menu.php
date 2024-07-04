@@ -1,20 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-<<<<<<< HEAD
 class Menu extends CI_Controller  
 {
-  public function __construct()
-  {
-    parent::__construct();
-    is_logged_in();
-  }
-=======
-class Menu extends CI_Controller {
->>>>>>> origin/mayang-nita-tabelSiswa
+
+
 
     public function __construct() {
         parent::__construct();
+        is_logged_in();
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('Menu_model');
