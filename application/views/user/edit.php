@@ -25,7 +25,7 @@
       </div>
       <div class="form-group row">
         <div class="col-sm-2">Picture</div>
-        <div class="cow-sm-10">
+        <div class="col-sm-10">
           <div class="row">
             <div class="col-sm-3">
               <img src="<?= base_url('assets/img/profile/') . $user['image']?>" class="img-thumbnail">
