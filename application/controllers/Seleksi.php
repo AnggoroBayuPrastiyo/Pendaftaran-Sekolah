@@ -29,7 +29,7 @@ class Seleksi extends CI_Controller {
             $data['tanggal_lahir'] = $tanggal_lahir;
 
             if ($result !== false) {
-                $data['hasil_seleksi'] = 'Diterima';
+                $data['hasil_seleksi'] = $result;
             } else {
                 $data['hasil_seleksi'] = 'Ditolak';
             }
@@ -41,4 +41,8 @@ class Seleksi extends CI_Controller {
             $this->load->view('seleksi_form', $data);
         }
     }
+    public function full_join_results() {
+        $data['results'] = $this->Seleksi_model->get_full_hasil_seleksi();
+        $this->load->view('full_join_results', $data);
+}
 }
