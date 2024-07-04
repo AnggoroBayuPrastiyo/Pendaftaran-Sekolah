@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fc;
+    color: #5a5c69;
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: #4e73df;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+
+/* Image Styles */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.35rem;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #858796;
+    border-collapse: collapse;
+}
+
+.table-bordered {
+    border: 1px solid #e3e6f0;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #e3e6f0;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #e3e6f0;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #e3e6f0;
+}
+
+/* Link Styles */
+a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #224abe;
+    text-decoration: underline;
+}
+
+/* Container Styles */
+.container-fluid {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
