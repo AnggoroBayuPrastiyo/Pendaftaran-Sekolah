@@ -1,4 +1,4 @@
-<?php
+4<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Seleksi extends CI_Controller {
