@@ -109,22 +109,5 @@ public function penerimaansiswa()
     $this->load->view('templates/footer');
   }
 
-  public function tabelsiswa  ()
-  {
-
-
-
-    $data['title'] = 'Tabel Siswa';
-    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
-    $this->load->model('Registration_model'); 
-    $data['registrations'] = $this->Registration_model->get_all_registrations(); // Anda 
-
-
-    $this->load->view('templates/header' , $data);
-    $this->load->view('templates/sidebar' , $data);
-    $this->load->view('templates/topbar' , $data);
-    $this->load->view('admin/tabelsiswa' , $data);
-    $this->load->view('templates/footer');
-  }
 
 }
