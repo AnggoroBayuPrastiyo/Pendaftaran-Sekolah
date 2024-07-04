@@ -1,76 +1,81 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Menu extends CI_Controller  
-{
-  public function __construct()
-  {
-    parent::__construct();
-    is_logged_in();
-  }
-
-  public function index(){
-    $data['title'] = 'Menu Management';
-    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
 
-    $data['menu'] = $this->db->get('user_menu')->result_array();
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800"><?= $title;?></h1>
 
 
-    $this->form_validation->set_rules('menu','Menu','required');
+  <div class="row">
+    <div class="col-lg-6">
+      <?= form_error('menu','<div class="alert alert-danger" role="alert">','</div>')?>
+
+      <?= $this->session->flashdata('message')?>
 
 
 
-    if($this->form_validation->run() == FALSE){
-    $this->load->view('templates/header' , $data);
-    $this->load->view('templates/sidebar' , $data);
-    $this->load->view('templates/topbar' , $data);
-    $this->load->view('menu/index' , $data);
-    $this->load->view('templates/footer');
-    } else {
-      $this->db->insert('user_menu', ['menu'=> $this->input->post('menu')]);
-      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Add new menu</div>');
-      redirect('menu');
-    }
-    
-  }
-
-  public function submenu()
-  {
-    $data['title'] = 'Submenu Management';
-    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
-    $this->load->model('Menu_model','menu');
-
-    $data['submenu'] = $this->menu->getSubMenu();
-    $data['menu'] = $this->db->get('user_menu')->result_array();
-
-    $this->form_validation->set_rules('title','Title','required');
-    $this->form_validation->set_rules('menu_id','Menu','required');
-    $this->form_validation->set_rules('url','URL','required');
-    $this->form_validation->set_rules('icon','icon','required');
-
-    if($this->form_validation->run() == FALSE)
-    {
-      
-      $this->load->view('templates/header' , $data);
-      $this->load->view('templates/sidebar' , $data);
-      $this->load->view('templates/topbar' , $data);
-      $this->load->view('menu/submenu' , $data);
-      $this->load->view('templates/footer');
-    } else {
-      $data = [
-        'title' => $this->input->post('title'),
-        'menu_id' => $this->input->post('menu_id'),
-        'url' => $this->input->post('url'),
-        'icon' => $this->input->post('icon'),
-        'is_active' => $this->input->post('is_active')
-      ];
-      $this->db->insert('user_sub_menu', $data);
-      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Add new sub menu</div>');
-      redirect('menu/submenu');
-    }
-
-  }
+      <a href="" class="btn btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">Add New Menu</a>
 
 
-}
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Menu</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php  $i =1;?>
+          <?php foreach((array)$menu as $m) :?>
+          <tr>
+            <th scope="row"><?= $i;?></th>
+            <td><?= $m['menu']; ?></td>
+            <td>
+              <a href="<?= base_url('menu/editmenu/' . $m['id']); ?>" class="badge badge-success">edit</a>
+              <a href="<?= base_url('menu/deletemenu/' . $m['id']); ?>" class="badge badge-danger">delete</a>
+
+
+            </td>
+          <tr>
+            <?php $i++?>
+            <?php endforeach; ?>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= base_url('menu')?>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu Name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
