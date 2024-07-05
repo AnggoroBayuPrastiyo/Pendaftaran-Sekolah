@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unggah Dokumen</title>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css2/unggahForm.css'); ?>">
 </head>
 <body>
+    
+
     <div class="container">
         <h1>Unggah Dokumen</h1>
         <?php echo form_open_multipart('upload/do_upload'); ?>

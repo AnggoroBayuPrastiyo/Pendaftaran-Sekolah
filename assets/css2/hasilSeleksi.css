@@ -1,97 +1,93 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .logo {
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  .logo h3 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  nav {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-  }
-  
-  nav h5 {
-    margin-top: 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  .contentPengumuman {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .contentPengumuman h1 {
-    font-size: 28px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Logo Styles */
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo h3 {
+  font-size: 2.5em;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Container Styles */
+.container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.contentPengumuman {
+  text-align: center;
+}
+
+.contentPengumuman h1 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #5477f5;
+  outline: none;
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #5477f5;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #3d5ed9;
+}
+
+button:active {
+  transform: scale(0.98);
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sekolah Ceria</title>
     <!-- ini ada sedikit perubahan di bagian link -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/hasilSeleksi.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css2/hasilSeleksi.css'); ?>">
     <!-- ini ada sedikit perubahan di bagian link -->
   </head>
 
