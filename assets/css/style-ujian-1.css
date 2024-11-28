@@ -1,0 +1,70 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 850px;
+    margin-top: 30px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Titles */
+.card-header {
+    background-color: black;
+    color: black;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.btn-primary, .btn-success {
+    border-radius: 5px;
+}
+
+/* Timer */
+#timer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #dc3545; /* Red */
+}
+
+/* Question Display */
+label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+/* Result Page */
+h5, h4 {
+    color: #333;
+}
