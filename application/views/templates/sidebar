@@ -1,0 +1,128 @@
+<!-- Sidebar -->
+<ul class="navbar-nav sidebar sidebar-dark accordion shadow-lg" id="accordionSidebar"
+  style="background-image: url('<?= base_url('assets/images/SidebarSakura.png') ?>'); background-size: cover; background-position: center;">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center py-4" href="<?= base_url('dashboard') ?>"
+    style="background-color: rgba(255,255,255,0.6); border-radius: 10px;">
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="bi bi-book-half text-dark"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3 text-dark">SMA Ceria</div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-2" style="border-color: rgba(0,0,0,0.3);">
+
+  <!-- QUERY MENU -->
+  <?php
+  $role_id = $user['role_id'];
+  $queryMenu = "SELECT `user_menu`.`id`, `menu`
+                FROM `user_menu` 
+                JOIN `user_access_menu` ON `user_menu`.`id` = `user_access_menu`.`menu_id`
+                WHERE `user_access_menu`.`role_id` = $role_id 
+                ORDER BY `user_access_menu`.`menu_id` ASC";
+  $menu = $this->db->query($queryMenu)->result_array();
+  ?>
+
+  <!-- LOOPING MENU -->
+  <?php foreach ($menu as $m) : ?>
+  <div class="sidebar-heading text-uppercase text-dark" style="font-weight: bold;">
+    <?= $m['menu'] ?>
+  </div>
+
+  <!-- QUERY SUBMENU -->
+  <?php
+    $menuId = $m['id'];
+    $querySubMenu = "SELECT *
+                     FROM `user_sub_menu` 
+                     JOIN `user_menu` ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
+                     WHERE `user_sub_menu`.`menu_id` = $menuId
+                     AND `user_sub_menu`.`is_active` = 1";
+    $subMenu = $this->db->query($querySubMenu)->result_array();
+    ?>
+
+  <!-- LOOPING SUBMENU -->
+  <?php foreach ($subMenu as $sm) : ?>
+  <li class="nav-item <?= ($title == $sm['title']) ? 'active' : '' ?>">
+    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded" href="<?= base_url($sm['url']) ?>"
+      style="color: #4f4f4f;">
+      <i class="<?= $sm['icon'] ?>"></i>
+      <span class="text-truncate"><?= $sm['title'] ?></span>
+    </a>
+  </li>
+  <?php endforeach; ?>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-2" style="border-color: rgba(0,0,0,0.3);">
+  <?php endforeach; ?>
+
+  <!-- Nav Item - Logout -->
+  <li class="nav-item">
+    <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded" href="<?= base_url('auth/logout') ?>"
+      style="color: #4f4f4f;">
+      <i class="bi bi-door-open"></i>
+      <span>Logout</span>
+    </a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block my-2" style="border-color: rgba(0,0,0,0.3);">
+
+  <!-- Sidebar Toggler -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0 shadow-sm bg-light text-dark" id="sidebarToggle"></button>
+  </div>
+
+</ul>
+<!-- End of Sidebar -->
+
+
+<style>
+/* Sidebar Background Pattern */
+.sidebar {
+  background-color: rgba(245, 245, 245, 0.9);
+  /* Warna pastel abu-abu dengan transparansi */
+  color: #4f4f4f;
+  /* Warna teks abu-abu */
+}
+
+/* Hover Effects for Menu Items */
+.nav-item a:hover {
+  background-color: rgba(200, 200, 200, 0.3);
+  /* Warna abu-abu muda */
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+/* Active Item Styling */
+.nav-item.active a {
+  background-color: rgba(180, 180, 180, 0.4);
+  /* Warna abu-abu sedang */
+  font-weight: bold;
+  border-left: 4px solid #ffc107;
+  /* Kuning pastel */
+}
+
+/* Divider Styling */
+.sidebar-divider {
+  border-color: rgba(0, 0, 0, 0.3);
+  /* Abu-abu */
+}
+
+/* Brand Hover */
+.sidebar-brand:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar Toggler */
+#sidebarToggle {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+#sidebarToggle:hover {
+  transform: rotate(180deg);
+}
+</style>

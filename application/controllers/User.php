@@ -178,4 +178,18 @@ class User extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function nasigoreng()
+  {
+
+    $data['title'] = 'Nasi Goreng';
+    $data['user'] = $this->db->get_where('user', ['email'=> $this->session->userdata('email')])->row_array();
+
+    $this->load->view('templates/header' , $data);
+    $this->load->view('templates/sidebar' , $data);
+    $this->load->view('templates/topbar' , $data);
+    $this->load->view('user/nasigoreng' , $data);
+    $this->load->view('templates/footer');
+  }
+
+
 }

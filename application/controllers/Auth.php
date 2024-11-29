@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
 
           $data = [
             'email' => $user['email'],
-            'password' => $user['password'],
+          'password' => $user['password'],
             'role_id' => $user['role_id']
           ];
           
