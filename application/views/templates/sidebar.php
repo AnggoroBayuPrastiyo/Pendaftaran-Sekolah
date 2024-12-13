@@ -2,7 +2,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -51,7 +51,7 @@
         <?php  else:?>
       <li class="nav-item">
         <?php  endif;?>
-        <a class="nav-link" href="<?= base_url($sm['url'])?>">
+        <a class="nav-link pb-0" href="<?= base_url($sm['url'])?>">
           <i class="<?= $sm['icon']?>"></i>
           <span><?= $sm['title']?></span></a>
       </li>
